@@ -5,7 +5,7 @@ import java.time.format.DateTimeFormatter;
 import java.util.Scanner;
 
 public class Main {
-
+	static String provaVecchiaPassword = null;
 	static Scanner scanner = new Scanner(System.in);
 	static gestoreUtenti gestoreUtenti = new gestoreUtenti();
 
@@ -16,6 +16,7 @@ public class Main {
 		gestoreUtenti.aggiungiUtente(user1);
 
 		creazioneUtente();
+		cambiapassword();
 		// login
 		while (true) {
 
@@ -93,38 +94,41 @@ public class Main {
 				System.out.println("Errore scelta sbagliata");
 			}
 		}
-	}
+	
 
-	String provaVecchiapassword = null;
-	while (true) {
-		  System.out.print("Inserisci la vecchia password: "); 
-		  provaVecchiaPassword =scanner.nextLine();
-		  
-		  if (provaVecchiaPassword.equals(Account.getPassword()))  
-			  break;  
-		  else {
-			  System.out.println("La vecchia password inserita non è corretta. Riprova.");
-		  }
-		  } 
-		  
-		 while (true) { 
-			System.out.print("Inserisci la nuova password: "); 
-		 	String nuovaPassword = scanner.nextLine();
-		  
-		  if (nuovaPassword.equals(provaVecchiaPassword)) {
-			  System.out.println("La nuova password non può essere uguale alla vecchia");
-			  continue; }
-		  
-		  System.out.print("Conferma la nuova password: "); 
-		  String confermaNuovaPassword = scanner.nextLine();
-		  
-		  if (!nuovaPassword.equals(confermaNuovaPassword)) {
-		  System.out.println("password non uguali"); 
-		  continue; 
-		  }
-		  
-		 Account.cambiaPassword(provaVecchiaPassword, nuovaPassword, confermaNuovaPassword); 
-		  break; 
-		  }
+	
 		 }
+
+	public static void cambiapassword() {
+		while (true) {
+			  System.out.print("Inserisci la vecchia password: "); 
+			  String provaVecchiaPassword = scanner.nextLine();
+			  
+			  if (provaVecchiaPassword.equals(Account.getPassword()))  
+				  break;  
+			  else {
+				  System.out.println("La vecchia password inserita non è corretta. Riprova.");
+			  }
+			  } 
+			  
+			 while (true) { 
+				System.out.print("Inserisci la nuova password: "); 
+			 	String nuovaPassword = scanner.nextLine();
+			  
+			  if (nuovaPassword.equals(provaVecchiaPassword)) {
+				  System.out.println("La nuova password non può essere uguale alla vecchia");
+				  continue; }
+			  
+			  System.out.print("Conferma la nuova password: "); 
+			  String confermaNuovaPassword = scanner.nextLine();
+			  
+			  if (!nuovaPassword.equals(confermaNuovaPassword)) {
+			  System.out.println("password non uguali"); 
+			  continue; 
+			  }
+			  
+			 Account.cambiaPassword(provaVecchiaPassword, nuovaPassword, confermaNuovaPassword); 
+			  break; 
+			  }
+	}
 }
