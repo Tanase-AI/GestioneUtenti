@@ -8,9 +8,6 @@ class Administrator extends Account {
         this.codiceBadge = codiceBadge;
     }
 
-    public void resettaPassword(String username) {
-    	
-    }
 
 	public int getCodiceBadge() {
 		return codiceBadge;

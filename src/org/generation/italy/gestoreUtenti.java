@@ -36,6 +36,14 @@ class gestoreUtenti {
         System.out.println("Credenziali non valide per l'utente: " + userName);
         return false;
     }
+    public Account cercaAccount(String username) {
+    	for(Account account : elencoAccount) {
+    		if(account.getUsername().equals(username))
+    			return account;
+    	}
+		return null; // se non trova l'account restituiece null
+    }
+    
     
     public List<Account> getElencoAccount() {
 		return elencoAccount;
@@ -45,5 +53,15 @@ class gestoreUtenti {
 		this.elencoAccount = elencoAccount;
 	}
 
+	
+	
+	// da fare
+    public void resettaPassword(String username) {
+    	
+    }
+	
+	
+	
+	
     
 }
