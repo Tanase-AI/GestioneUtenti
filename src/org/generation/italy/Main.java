@@ -19,23 +19,24 @@ public class Main {
 
             if (risposta.equalsIgnoreCase("sign up")) {
             	     	
-                System.out.println("Inserisci username:");
-                String username = scanner.nextLine();
-                
-                boolean usernameEsistente = false;
-                for (Account account : gestoreUtenti.getElencoAccount()) {
-                    if (account.getUsername().equals(username)) {                
-                    	  usernameEsistente = true;
-                          break;
-                      }
-                  }
-                  if (usernameEsistente) {
-                      System.out.println("Username già in uso. Scegli un altro username.");
-                      continue; 
-                  }
-                    	
-                    	
-                    	
+            	 boolean usernameValido = false;
+                 String username = "";
+
+                 while (!usernameValido) {
+                     System.out.println("Inserisci username:");
+                     username = scanner.nextLine();
+
+                     // Verifica se l'username è già stato utilizzato
+                     usernameValido = true;
+                     for (Account account : gestoreUtenti.getElencoAccount()) {
+                         if (account.getUsername().equals(username)) {
+                             usernameValido = false;
+                             System.out.println("Username già in uso. Scegli un altro username.");
+                             break;
+                         }
+                     }
+                 }
+                                        	
                 System.out.println("Inserisci password:");
                 String password = scanner.nextLine();
 
