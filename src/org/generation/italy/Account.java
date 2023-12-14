@@ -1,19 +1,21 @@
 package org.generation.italy;
 
 class Account {
-    private static String username;
-    private static String password;
+    private String username;
+    private String password;
     private String nome;
     private String cognome;
 
     public Account(String username, String password, String nome, String cognome) {
-
+    	this.username = username;
+    	this.password = password;
         this.nome = nome;
         this.cognome = cognome;
     }
 
-    public static void cambiaPassword(String vecchiaPassword, String nuovaPassword, String confermaNuovaPassword) {    
-        password = nuovaPassword;
+    public void cambiaPassword(String vecchiaPassword, String nuovaPassword, String confermaNuovaPassword) {    
+
+    	this.password = nuovaPassword;
         System.out.println("Password cambiata con successo per l'utente " + username);
     }
 	       
@@ -33,7 +35,7 @@ class Account {
 		this.username = username;
 	}
 
-	public static String getPassword() {
+	public  String getPassword() {
 		return password;
 	}
 
